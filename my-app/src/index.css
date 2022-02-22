@@ -45,3 +45,25 @@ code {
 .address h3 {
   margin: 0;
 }
+
+.modal{
+    position: relative;
+     background-color: white;
+     margin: auto;
+     margin-top: 25%;
+     width: 300px;
+     padding: 20px;
+     border-radius: 5px;
+}
+.modal-background{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(116, 116, 110, 0.363);
+}
+.modal button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

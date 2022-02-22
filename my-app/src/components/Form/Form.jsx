@@ -1,5 +1,10 @@
 import Dropdown from "../Dropdown/Dropdown";
+import Modal from "../Modal/Modal";
+
 import { useState } from "react";
+import { useSelector } from 'react-redux'
+import { store } from "../../app/store";
+import { modal_visibility } from "../../app/employeeReducer";
 
 function Form(props) {
 
@@ -13,12 +18,15 @@ function Form(props) {
     const [zip, setZip] = useState('');
     const [department, setDepartment] = useState('');
     
+     const modal = useSelector((state) => state.modalVisibility)
 
-    function handleSubmit() {
-        
+    function handleSubmit(e) {
+        e.preventDefault();
+        store.dispatch(modal_visibility(true))        
     }
-    return (
-        <form class="form" onSubmit={handleSubmit}>
+    return (        
+        <>
+            <form class="form" onSubmit={handleSubmit}>
                 <label>First Name</label>
                 <input type="text" onChange={(e) => setFirstname(e.target.value)}></input>
                 <label>Last Name</label>
@@ -40,7 +48,9 @@ function Form(props) {
                 <label>Department</label>
                 <Dropdown></Dropdown>
                 <input type="submit"></input>
-            </form>
+            </form>  
+        </>
+        
     )
 }
 
