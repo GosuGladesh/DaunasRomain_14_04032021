@@ -1,10 +1,12 @@
 import Dropdown from "../Dropdown/Dropdown";
-import Modal from "../Modal/Modal";
 
 import { useState } from "react";
 import { useSelector } from 'react-redux'
 import { store } from "../../app/store";
-import { modal_visibility } from "../../app/employeeReducer";
+import { add_employee, modal_visibility } from "../../app/employeeReducer";
+
+import states from "../../data/state.json";
+import dropDepartment from "../../data/department.json";
 
 function Form(props) {
 
@@ -18,11 +20,12 @@ function Form(props) {
     const [zip, setZip] = useState('');
     const [department, setDepartment] = useState('');
     
-     const modal = useSelector((state) => state.modalVisibility)
+    const modal = useSelector((state) => state.modalVisibility)
 
     function handleSubmit(e) {
         e.preventDefault();
-        store.dispatch(modal_visibility(true))        
+        store.dispatch(modal_visibility(true))
+        store.dispatch(add_employee({firstname,lastname,birthdate,startdate,street,city,countryState,zip,department}))
     }
     return (        
         <>
@@ -41,12 +44,13 @@ function Form(props) {
                     <input type="text" onChange={(e) => setStreet(e.target.value)}></input>
                     <label>City</label>
                     <input type="text" onChange={(e) => setCity(e.target.value)}></input>
-                    <Dropdown></Dropdown>
+                    <label>State</label>
+                    <Dropdown values={states}></Dropdown>
                     <label>Zip Code</label>
                     <input type="number" onChange={(e) => setZip(e.target.value)}></input>
                 </div>
                 <label>Department</label>
-                <Dropdown></Dropdown>
+                <Dropdown values={dropDepartment}></Dropdown>
                 <input type="submit"></input>
             </form>  
         </>

@@ -19,7 +19,7 @@ function employeeReducer(state = initialSate, action) {
         case "ADD_EMPLOYEE":
             return {
                 ...state,
-                
+                employees: [...state.employees, action.payload] 
             }
         case "MODAL_VISIBILITY":
             return {

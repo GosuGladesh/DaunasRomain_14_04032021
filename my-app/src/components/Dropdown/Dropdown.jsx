@@ -1,7 +1,11 @@
 function Dropdown(props) {
     
+    const options = props.values.map((option) => <option value={option.abbreviation}>{option.name}</option>)
+
     return (
-        <p>Dropdown</p>
+        <select>
+           {options}
+        </select>
     )
 }
 
