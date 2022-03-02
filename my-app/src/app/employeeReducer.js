@@ -1,6 +1,10 @@
 
 const initialSate = {
-    employees: [],
+    employees: [
+        { firstName: "John", lastName: "Smith", dateOfBirth: "08/15/2000", startDate: "03/02/2022", department: "Marketing", street: "12 Joohnson Street", city: "New York", state: "NY", zipCode: "51" },
+        { firstName: "Jane", lastName: "Smith", dateOfBirth: "03/15/2000", startDate: "03/08/2022", department: "Marketing", street: "12 Joohnson Street", city: "New York", state: "NY", zipCode: "51" },
+        { firstName:"Henry",lastName:"Smith",dateOfBirth:"03/27/2000",startDate:"07/02/2022",department:"Sales",street:"12 Joohnson Street",city:"New York",state:"NY",zipCode:"51"}
+    ],
     modalVisibility: false
 }
 
