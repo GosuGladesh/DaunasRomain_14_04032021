@@ -6,10 +6,12 @@ function ViewEmployee(props) {
     
     return (
         <>
-            <h1>Current Employees</h1>
-            
-            <Tableau></Tableau>
-            <Link to="/">Home</Link>
+            <div class="viewEmployee">
+                <h1>Current Employees</h1>            
+                <Tableau></Tableau>
+                <Link to="/">Home</Link>
+            </div>
+           
         </>
     )
 }
