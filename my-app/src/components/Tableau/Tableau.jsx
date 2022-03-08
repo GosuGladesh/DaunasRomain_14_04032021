@@ -22,13 +22,13 @@ function Tableau(props) {
   }
 
   function pageNext() {
-    if (currentPage == Math.ceil(localEmployee.length/pageSize)) {
+    if (currentPage === Math.ceil(localEmployee.length/pageSize)) {
       return
     }
     setCurrentPage(currentPage + 1)
   }
   function pagePrevious() {
-    if (currentPage == 1) {
+    if (currentPage === 1) {
       return
     }
     setCurrentPage(currentPage - 1)
@@ -36,23 +36,35 @@ function Tableau(props) {
   function pageSet(page) {
     setCurrentPage(page)
   }
-
+  function search(input) {
+    if (input === "") {
+      setLocalEmployee(employees);
+      return
+    }
+    let result = localEmployee.filter( employee => {
+        if(employee.firstName.includes(input) || employee.lastName.includes(input) || employee.dateOfBirth.includes(input) || employee.department.includes(input) || employee.startDate.includes(input) || employee.street.includes(input) || employee.city.includes(input) || employee.state.includes(input) || employee.zipCode.includes(input)){
+          return true
+        }
+        return false
+      })
+    setLocalEmployee(result)
+  }
   return (
     <>
       <div class="filters">
         <div>
             <p>Show</p>
             <select onChange={(e) => setPageSize(e.target.value)}>
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
             </select>
             <p>entries</p>
         </div>
         <div>
           <p>Search:</p>
-          <input type="text"></input>
+          <input type="text" onChange={(e) => search(e.target.value)}></input>
         </div> 
       </div>
       
@@ -71,7 +83,7 @@ function Tableau(props) {
         </tr>
       </thead>
       <tbody>
-        {localEmployee.slice((currentPage - 1)*10, currentPage * pageSize).map((employee) => {
+        {localEmployee.slice((currentPage - 1)*pageSize, currentPage * pageSize).map((employee) => {
           return (
             <tr>
               <td>{employee.firstName}</td>
