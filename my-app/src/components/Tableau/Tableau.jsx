@@ -12,6 +12,7 @@ function Tableau(props) {
     setLocalEmployee(employees);
   }, []);
 
+  //sorting by clicking on a column head
   function sorting(property) {
     let sortEmployee = localEmployee;
     sortEmployee.sort((a, b) =>
@@ -20,22 +21,25 @@ function Tableau(props) {
     setLocalEmployee([...sortEmployee]);
     console.log(localEmployee);
   }
-
+  //Changing to next page
   function pageNext() {
     if (currentPage === Math.ceil(localEmployee.length/pageSize)) {
       return
     }
     setCurrentPage(currentPage + 1)
   }
+  //Changing to previous page
   function pagePrevious() {
     if (currentPage === 1) {
       return
     }
     setCurrentPage(currentPage - 1)
   }
+  //Changing to specified page
   function pageSet(page) {
     setCurrentPage(page)
   }
+  //Searching bbased on input text
   function search(input) {
     if (input === "") {
       setLocalEmployee(employees);
@@ -49,12 +53,17 @@ function Tableau(props) {
       })
     setLocalEmployee(result)
   }
+  //Generating table pages buttons
+  let pagesButtons = [];
+  for(let i = 1; i < Math.ceil(localEmployee.length / pageSize)+1;i++){
+    pagesButtons.push(<button onClick={() => pageSet(i)}>{i}</button>)
+  }
   return (
     <>
       <div class="filters">
         <div>
             <p>Show</p>
-            <select onChange={(e) => setPageSize(e.target.value)}>
+          <select onChange={(e) => { setPageSize(e.target.value);pageSet(1) }}>
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
@@ -100,9 +109,10 @@ function Tableau(props) {
         })}
       </tbody>
       </table>
+      <p>Showing {currentPage * pageSize - (pageSize-1)} of {currentPage * pageSize } entries</p>
       <div class="tableNav">
         <button onClick={pagePrevious}>prev</button>
-
+        {pagesButtons}
         <button onClick={pageNext}>next</button>
       </div>
       </>
@@ -110,8 +120,4 @@ function Tableau(props) {
 }
 
 export default Tableau;
-/*
-create state for line number
-split store array base on line number
-create array of array2, each array2 = 1 tabla page
-*/
+
