@@ -39,7 +39,7 @@ function Form(props) {
                 <label>Start date</label>
                 <input type="date" onChange={(e) => setStartdate(e.target.value)}></input>
                 <div class="address">
-                    <h3>Address</h3>
+                    <p class="addressTitle">Address</p>
                     <label>Street</label>
                     <input type="text" onChange={(e) => setStreet(e.target.value)}></input>
                     <label>City</label>
@@ -51,7 +51,7 @@ function Form(props) {
                 </div>
                 <label>Department</label>
                 <Dropdown values={dropDepartment}></Dropdown>
-                <input type="submit"></input>
+                <input class="buttonSubmit" type="submit"></input>
             </form>  
         </>
         

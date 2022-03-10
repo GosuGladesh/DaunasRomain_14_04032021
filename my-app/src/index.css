@@ -35,17 +35,27 @@ code {
 }
 
 .address {
+  position: relative;
   border: black solid 1px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.address h3 {
+.addressTitle {
   margin: 0;
-}
+  padding: 5px;
+  position: absolute;
+  top: -20px;
+  background-color: white;
+ }
 
+ .buttonSubmit{
+   width: 100px;
+   padding: 8px 10px;
+   align-self: center;
+ }
 .modal{
     position: relative;
      background-color: white;
@@ -74,11 +84,17 @@ select {
 
 /* View Employee CSS*/
 
+.tableSelect {
+  margin: 10px;
+}
+.tableInput{
+  margin: 10px;
+}
 table {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 th {
   padding: 10px;
@@ -110,4 +126,26 @@ td {
 
 .filters input {
   height: 25px;
+}
+.tableButton {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background: none;
+  border: none;
+  border-radius: 3px;
+}
+.tableButton:active{
+  border: solid gray 1px;
+  background-color: rgb(153, 152, 152);
+}
+.tableButton:hover{
+  background-color: rgb(59, 59, 59);
+  color: white;
+}
+.tableFoot{
+  display: flex;
+  width: 937px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

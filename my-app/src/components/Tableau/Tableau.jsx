@@ -56,14 +56,14 @@ function Tableau(props) {
   //Generating table pages buttons
   let pagesButtons = [];
   for(let i = 1; i < Math.ceil(localEmployee.length / pageSize)+1;i++){
-    pagesButtons.push(<button onClick={() => pageSet(i)}>{i}</button>)
+    pagesButtons.push(<button class="tableButton" onClick={() => pageSet(i)}>{i}</button>)
   }
   return (
     <>
       <div class="filters">
         <div>
             <p>Show</p>
-          <select onChange={(e) => { setPageSize(e.target.value);pageSet(1) }}>
+          <select class="tableSelect" onChange={(e) => { setPageSize(e.target.value);pageSet(1) }}>
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
@@ -73,7 +73,7 @@ function Tableau(props) {
         </div>
         <div>
           <p>Search:</p>
-          <input type="text" onChange={(e) => search(e.target.value)}></input>
+          <input class="tableInput" type="text" onChange={(e) => search(e.target.value)}></input>
         </div> 
       </div>
       
@@ -109,12 +109,15 @@ function Tableau(props) {
         })}
       </tbody>
       </table>
-      <p>Showing {currentPage * pageSize - (pageSize-1)} of {currentPage * pageSize } entries</p>
-      <div class="tableNav">
-        <button onClick={pagePrevious}>prev</button>
-        {pagesButtons}
-        <button onClick={pageNext}>next</button>
+      <div class="tableFoot">
+        <p>Showing {currentPage * pageSize - (pageSize - 1)} to {currentPage * pageSize} of {localEmployee.length} entries</p>
+        <div class="tableNav">
+          <button class="tableButton" onClick={pagePrevious}>Previous</button>
+          {pagesButtons}
+          <button class="tableButton" onClick={pageNext}>Next</button>
+        </div>
       </div>
+      
       </>
   );
 }
