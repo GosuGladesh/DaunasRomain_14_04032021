@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import Tableau from "../../components/Tableau/Tableau"
+//import { Tableau } from "daunas-p14-table";
+import Tableau from '../../components/Tableau/Tableau';
 
 
 function ViewEmployee(props) {
@@ -10,7 +11,7 @@ function ViewEmployee(props) {
         <>
             <div class="viewEmployee">
                 <h1>Current Employees</h1>            
-                <Tableau employees={employees}></Tableau>
+                <Tableau data={employees}></Tableau>
                 <Link to="/">Home</Link>
             </div>
            

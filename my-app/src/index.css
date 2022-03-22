@@ -76,76 +76,24 @@ code {
   position: absolute;
   top: 0;
   right: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.modal button:hover {
+  background-color: rgb(226, 42, 42);
 }
 
 select {
   margin: 10px 0;
 }
 
-/* View Employee CSS*/
-
-.tableSelect {
-  margin: 10px;
-}
-.tableInput{
-  margin: 10px;
-}
-table {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-}
-th {
-  padding: 10px;
-  border-bottom: solid 1px black;
-}
-tbody tr :hover {
-  background-color: rgb(211, 208, 208);
-}
-td {
-  padding: 10px;
-}
-
 .viewEmployee {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.filters {
-  width: 1000px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.filters div {
-  display: flex;
-  align-items: center;
-}
-
-.filters input {
-  height: 25px;
-}
-.tableButton {
-  padding: 8px 16px;
-  margin: 0 5px;
-  background: none;
-  border: none;
-  border-radius: 3px;
-}
-.tableButton:active{
-  border: solid gray 1px;
-  background-color: rgb(153, 152, 152);
-}
-.tableButton:hover{
-  background-color: rgb(59, 59, 59);
-  color: white;
-}
-.tableFoot{
-  display: flex;
-  width: 937px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  padding: 30px;
 }
