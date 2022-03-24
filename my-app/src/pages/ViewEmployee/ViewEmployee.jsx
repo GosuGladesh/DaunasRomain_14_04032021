@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
-//import { Tableau } from "daunas-p14-table";
-import Tableau from '../../components/Tableau/Tableau';
+import { Tableau } from "daunas-p14-table";
+//import Tableau from '../../components/Tableau/Tableau';
 
 
 function ViewEmployee(props) {

@@ -30,27 +30,27 @@ function Form(props) {
     return (        
         <>
             <form class="form" onSubmit={handleSubmit}>
-                <label>First Name</label>
-                <input type="text" onChange={(e) => setFirstName(e.target.value)}></input>
-                <label>Last Name</label>
-                <input type="text" onChange={(e) => setLastName(e.target.value)}></input>
-                <label>Date of birth</label>
-                <input type="date" onChange={(e) => setBirhtDate(e.target.value)}></input>
-                <label>Start date</label>
-                <input type="date" onChange={(e) => setStartDate(e.target.value)}></input>
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" onChange={(e) => setFirstName(e.target.value)}></input>
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" onChange={(e) => setLastName(e.target.value)}></input>
+                <label for="birthDate">Date of birth</label>
+                <input type="date" id="birthDate" onChange={(e) => setBirhtDate(e.target.value)}></input>
+                <label for="startDate">Start date</label>
+                <input type="date" id="startDate" onChange={(e) => setStartDate(e.target.value)}></input>
                 <div class="address">
                     <p class="addressTitle">Address</p>
-                    <label>Street</label>
-                    <input type="text" onChange={(e) => setStreet(e.target.value)}></input>
-                    <label>City</label>
-                    <input type="text" onChange={(e) => setCity(e.target.value)}></input>
-                    <label>State</label>
-                    <Dropdown values={states} callback={setCountrystate}></Dropdown>
-                    <label>Zip Code</label>
-                    <input type="number" onChange={(e) => setZip(e.target.value)}></input>
+                    <label for="street">Street</label>
+                    <input type="text" id="street" onChange={(e) => setStreet(e.target.value)}></input>
+                    <label for="city">City</label>
+                    <input type="text" id="city" onChange={(e) => setCity(e.target.value)}></input>
+                    <label for="state">State</label>
+                    <Dropdown values={states} callback={setCountrystate} id={"state"}></Dropdown>
+                    <label for="zip">Zip Code</label>
+                    <input type="number" id="zip" onChange={(e) => setZip(e.target.value)}></input>
                 </div>
-                <label>Department</label>
-                <Dropdown values={dropDepartment} callback={setDepartment}></Dropdown>
+                <label for="department">Department</label>
+                <Dropdown values={dropDepartment} callback={setDepartment} id={"department"}></Dropdown>
                 <input class="buttonSubmit" type="submit"></input>
             </form>  
         </>
