@@ -1,7 +1,7 @@
 import Dropdown from "../Dropdown/Dropdown";
 
+import React from "react";
 import { useState } from "react";
-import { useSelector } from 'react-redux'
 import { store } from "../../app/store";
 import { add_employee, modal_visibility } from "../../app/employeeReducer";
 
@@ -20,8 +20,6 @@ function Form(props) {
     const [zip, setZip] = useState('');
     const [department, setDepartment] = useState('');
     
-    const modal = useSelector((state) => state.modalVisibility)
-
     function handleSubmit(e) {
         e.preventDefault();
         store.dispatch(modal_visibility(true))
@@ -29,29 +27,29 @@ function Form(props) {
     }
     return (        
         <>
-            <form class="form" onSubmit={handleSubmit}>
-                <label for="firstName">First Name</label>
+            <form className="form" onSubmit={handleSubmit}>
+                <label htmlFor="firstName">First Name</label>
                 <input type="text" id="firstName" onChange={(e) => setFirstName(e.target.value)}></input>
-                <label for="lastName">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input type="text" id="lastName" onChange={(e) => setLastName(e.target.value)}></input>
-                <label for="birthDate">Date of birth</label>
-                <input type="date" id="birthDate" onChange={(e) => setBirhtDate(e.target.value)}></input>
-                <label for="startDate">Start date</label>
-                <input type="date" id="startDate" onChange={(e) => setStartDate(e.target.value)}></input>
-                <div class="address">
-                    <p class="addressTitle">Address</p>
-                    <label for="street">Street</label>
+                <label htmlFor="birthDate">Date of birth</label>
+                <input type="date" id="birthDate" data-testid="birthdate" onChange={(e) => setBirhtDate(e.target.value)}></input>
+                <label htmlFor="startDate">Start date</label>
+                <input type="date" id="startDate" data-testid="startdate" onChange={(e) => setStartDate(e.target.value)}></input>
+                <div className="address">
+                    <p className="addressTitle">Address</p>
+                    <label htmlFor="street">Street</label>
                     <input type="text" id="street" onChange={(e) => setStreet(e.target.value)}></input>
-                    <label for="city">City</label>
+                    <label htmlFor="city">City</label>
                     <input type="text" id="city" onChange={(e) => setCity(e.target.value)}></input>
-                    <label for="state">State</label>
+                    <label htmlFor="state">State</label>
                     <Dropdown values={states} callback={setCountrystate} id={"state"}></Dropdown>
-                    <label for="zip">Zip Code</label>
+                    <label htmlFor="zip">Zip Code</label>
                     <input type="number" id="zip" onChange={(e) => setZip(e.target.value)}></input>
                 </div>
-                <label for="department">Department</label>
+                <label htmlFor="department">Department</label>
                 <Dropdown values={dropDepartment} callback={setDepartment} id={"department"}></Dropdown>
-                <input class="buttonSubmit" type="submit"></input>
+                <input className="buttonSubmit" type="submit" data-testid="submitButton"></input>
             </form>  
         </>
         

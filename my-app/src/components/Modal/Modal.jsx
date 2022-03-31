@@ -1,4 +1,4 @@
-
+import React from "react";
 import { useSelector } from "react-redux";
 
 import { modal_visibility } from "../../app/employeeReducer";
@@ -16,8 +16,8 @@ function Modal(props) {
     if(modal) {
         return (
             <>
-                <div class="modal-background">
-                    <div class="modal">
+                <div className="modal-background">
+                    <div className="modal">
                         <button onClick={closeModal}>X</button>
                         <p> Employee added</p>
                     </div>

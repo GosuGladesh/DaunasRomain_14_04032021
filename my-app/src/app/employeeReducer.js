@@ -1,6 +1,6 @@
 import data from "./data.json"
 const initialSate = {
-    employees: data,
+    employees: [],
     modalVisibility: false
 }
 
